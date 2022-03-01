@@ -107,3 +107,9 @@ docker-build () {
     ./docker-build.sh
     dcupd
 }
+
+wipeCache () {
+        da tinker --execute="Cache::flush();"
+}
+
+alias dbc="da db:wipe && wipeCache && da migrate && da db:seed" 
