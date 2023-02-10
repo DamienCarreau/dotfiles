@@ -104,6 +104,7 @@ alias c="clear"
 
 docker-build () {
     eval `ssh-agent -s`
+    ssh-add ~/.ssh/id_rsa
     ./docker-build.sh
     dcupd
 }
