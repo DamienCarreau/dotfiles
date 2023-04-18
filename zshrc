@@ -114,3 +114,6 @@ wipeCache () {
 }
 
 alias dbc="da db:wipe && wipeCache && da migrate && da db:seed" 
+
+alias docker-compose="docker compose"
+
