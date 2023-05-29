@@ -109,8 +109,18 @@ docker-build () {
     dcupd
 }
 
-wipeCache () {
-        da tinker --execute="Cache::flush();"
+wipe-cache () {
+    da tinker --execute="Cache::flush();"
+}
+
+reset-develop () {
+    current_branch=$(git symbolic-ref --short HEAD)
+    git checkout develop
+    git fetch -ap
+    git pull
+    if [ "$current_branch" != "develop" ] && ! git show-ref --verify --quiet "refs/heads/$current_branch"; then
+        git branch -D "$current_branch"
+    fi
 }
 
 alias dbc="da db:wipe && wipeCache && da migrate && da db:seed" 
