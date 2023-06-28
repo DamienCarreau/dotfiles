@@ -118,9 +118,7 @@ reset-develop () {
     git checkout develop
     git fetch -ap
     git pull
-    if [ "$current_branch" != "develop" ] && ! git show-ref --verify --quiet "refs/heads/$current_branch"; then
-        git branch -D "$current_branch"
-    fi
+    git branch -D "$current_branch"
 }
 
 alias dbc="da db:wipe && wipeCache && da migrate && da db:seed" 
