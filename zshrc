@@ -121,7 +121,7 @@ reset-develop () {
     git branch -D "$current_branch"
 }
 
-alias dbc="da db:wipe && wipeCache && da migrate && da db:seed" 
+alias dbc="da db:wipe && wipe-cache && da migrate && da db:seed" 
 
 alias docker-compose="docker compose"
 
